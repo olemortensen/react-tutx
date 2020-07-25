@@ -12,10 +12,10 @@ code {
     monospace;
 }
 
-.simple-menu ul{
+.main ul{
   list-style: none;
 }
-.simple-menu li{
+.main li{
   display: inline;
 }
 
