@@ -18,3 +18,9 @@ code {
 .simple-menu li{
   display: inline;
 }
+
+.app-link {
+  padding-right: 1em;
+  text-transform: uppercase;
+  color: white;
+}

@@ -5,6 +5,15 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+// import {useHistory} from 'react-router-dom';
+import {Link} from "@material-ui/core";
+import {
+    Route,
+    NavLink,
+    HashRouter
+} from "react-router-dom";
+import Files from "./files";
+import About from "./about";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,22 +27,31 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SimpleMenu() {
-
-
-    const classes = useStyles();
-
-    return (
-        <div className={classes.root}>
-            <AppBar position="static">
-                <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <MenuIcon />
-                    </IconButton>
-                    <Button color="inherit">Open</Button>
-                    <Button color="inherit">Login</Button>
-                </Toolbar>
-            </AppBar>
-        </div>
-    );
+export default class SimpleMenu extends React.Component {
+    render() {
+        // const classes = useStyles();
+        // const history = useHistory();
+        return (
+        <HashRouter>
+            <div /*className={classes.root}*/>
+                <AppBar position="static">
+                    <Toolbar>
+                        <IconButton edge="start" /*className={classes.menuButton}*/ color="inherit" aria-label="menu">
+                            <MenuIcon/>
+                        </IconButton>
+                        <NavLink color="inherit" to="/" className="app-link">Main</NavLink>
+                        <NavLink color="inherit" to="/files" className="app-link">Files</NavLink>
+                        {/*<Button color="inherit" onClick={() => history.push('files')}>Files</Button>*/}
+                        <NavLink color="inherit" to="/about" className="app-link">About</NavLink>
+                    </Toolbar>
+                </AppBar>
+            </div>
+            <div className="content">
+                {/*<Route path="/" component={Main}/>*/}
+                <Route path="/files" component={Files}/>
+                <Route path="/about" component={About}/>
+            </div>
+        </HashRouter>
+        );
+    }
 }
