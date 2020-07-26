@@ -23,6 +23,7 @@ export default class Files extends React.Component {
         axios.get("https://jsonplaceholder.typicode.com/posts").then(
             result => {
                 this.setState({
+                    error: null,
                     isLoaded: true,
                     items: result.data
                 });
@@ -32,8 +33,9 @@ export default class Files extends React.Component {
             // exceptions from actual bugs in components.
             err => {
                 this.setState({
+                    error: err,
                     isLoaded: true,
-                    error: err
+                    items: []
                 });
             }
         );
