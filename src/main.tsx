@@ -1,12 +1,11 @@
 import React from 'react';
+import {useParams} from "react-router-dom";
 
-
-export default class Main extends React.Component {
-    render() {
+export default function Main() {
+    let { id } = useParams();
         return (
             <div>
-                Main page
+                Hello main with id: {id}
             </div>
         );
-    }
 }
